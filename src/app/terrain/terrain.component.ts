@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { terrains} from "../terrain"
+
 @Component({
   selector: 'app-terrain',
   templateUrl: './terrain.component.html',
@@ -9,18 +9,18 @@ import { terrains} from "../terrain"
 export class TerrainComponent implements OnInit {
 
   terrains=[];
-  terrainlist=terrains;
+
 
   
   constructor(private dataService: DataService) { }
 
   
   ngOnInit() {
-console.log("terrainlist", this.terrainlist);
 
-    this.dataService.sendGetRequest().subscribe((data:any)=> {
+
+    this.dataService.getFeild(null).subscribe((data:any)=> {
       console.log(data);
-      this.terrains=data
+      this.terrains=data;
 
     })
 
