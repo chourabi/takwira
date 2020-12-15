@@ -24,7 +24,7 @@ export class DataService {
 
 
   public addFeild(data:any){
-    return this.httpClient.post("http://localhost:3000/feilds",data);
+    return this.httpClient.post("http://localhost:3002/add",data);
   }
 
 }
