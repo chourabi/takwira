@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class TerrainComponent implements OnInit {
 
-  terrains=[];
+  terrains:any=[];
 
 
   
