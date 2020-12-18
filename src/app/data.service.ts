@@ -27,4 +27,10 @@ export class DataService {
     return this.httpClient.post("http://localhost:3002/add",data);
   }
 
+  public auth(data:any){
+    console.log(data);
+    
+    return this.httpClient.post("http://localhost:3002/auth",data,{headers:{}});
+  }
+
 }
