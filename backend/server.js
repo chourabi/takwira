@@ -1,52 +1,105 @@
-let express=require('express');
-let mongoose=require('mongoose');
-let cors=require('cors');
-let bodyParser=require('body-parser');
 
-let dbConfig=require('./database/db');
-var terrin = require('./modules/terrain'); 
+const { ObjectId } = require('bson');
+const express = require('express');
 
-mongoose.Promise=global.Promise;
-mongoose.connect(dbConfig.db,{useNewUrlParser:true}).then(()=>{
-    console.log('database connected successfully');
-},error=>{
-    console.log('database connection error!',error);
-})
+const { addNewFeild, getAllFeilds } = require('./modules/terrain');
+const { auth } = require('./modules/users');
+const app = express()
+const port = 3002
 
 
-const app=express();
-app.use(function(req, res) {
+app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     res.header('Access-Control-Allow-Methods', "GET,HEAD,PUT,PATCH,POST,DELETE");
+    next();
+});
+
+
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+
+
+
+function  requireLogin(req, resg, next) {
+
+  const token = req.headers.authorization;
+
+console.log(token);
+      var MongoClient = require('mongodb').MongoClient;
+      var url = 'mongodb://localhost:27017';
+  
+      MongoClient.connect(url,function(err,db){
+          if (err) {
+              throw err;
+          }
+  
+          var dbo = db.db('takwira');
+  
+          dbo.collection('users').findOne({ _id:ObjectId(token) },function(err,response){
+            console.log(response);
+            
+            if (response) {
+                
+
+                next();
+            } else {
+                resg.send({ success:false, message:'access denied' })
+            }
+
+          })
+        })
+            
+
+
+
+}
+
+// Automatically apply the `requireLogin` middleware to all
+// routes starting with `/admin`
+app.all("/app/*", requireLogin, function(req, res, next) {
+  next();
+});
+
+
+app.post('/app/hi', (req,res) =>{
+
+  res.send({success:true,message:"route is accessible"});
 
 });
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
 
+app.post('/app/add',function(req,res){
+    addNewFeild(req,res);
+});
 
-app.use(cors());
-
-const fieldRoute=require('./routes/fields.route');
-const { addNewFeild } = require('./modules/terrain');
-const { auth } = require('./modules/users');
-app.use('/api/fields',fieldRoute);
-
-
-
+<<<<<<< HEAD
 
 app.post('/add',function(req,res){
    terrin.addNewFeild(req,res);
+=======
+app.get('/app/all',function(req,res){
+    getAllFeilds(req,res);
+>>>>>>> e453985c1f4b1cd11801058f7adffb94febefdf1
 })
 
 
-app.post('/auth',function(req,res){
-   auth(req,res);
- })
 
-const port=process.env.PORT||3002;
-const server=app.listen(port,()=>{
-    console.log("connected to port",port);
+app.post('/auth', (req,res) =>{
+
+  auth(req,res);
+
+});
+
+
+
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 })
+
+

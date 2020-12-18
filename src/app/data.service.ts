@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
  
   private REST_API_SERVER = "https://jsonplaceholder.typicode.com/todos/1";
-
+  
   
 
   constructor(private httpClient: HttpClient) { }
@@ -18,20 +18,33 @@ export class DataService {
 
 
   public getFeild(data:any){
+<<<<<<< HEAD
     return this.httpClient.get("http://localhost:3003/api/fields");
+=======
+    let token = ""+localStorage.getItem("token");
+    
+    return this.httpClient.get("http://localhost:3002/app/all",{headers:{
+      "Content-Type":"application/json",
+      "Authorization":token
+    }});
+>>>>>>> e453985c1f4b1cd11801058f7adffb94febefdf1
   }  
 
 
 
   public addFeild(data:any){
-    return this.httpClient.post("http://localhost:3002/api/fields",data);
+    let token = ""+localStorage.getItem("token");
+    return this.httpClient.post("http://localhost:3002/app/add",data,{headers:{
+      "Content-Type":"application/json",
+      "Authorization":token
+    }});
 
   }
 
   public auth(data:any){
     console.log(data);
     
-    return this.httpClient.post("http://localhost:3002/auth",data,{headers:{}});
+    return this.httpClient.post("http://localhost:3002/auth",data);
   }
 
 }
