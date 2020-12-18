@@ -43,6 +43,10 @@ export class DataService {
     return this.httpClient.post("http://localhost:3002/auth",data);
   }
 
+  public addReclamation(data:any){
+    return this.httpClient.post("http://localhost:3003/api/reclamation",data);
+
+  }
 }
 
 
