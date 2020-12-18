@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
 
   reclamation(){
     this.data.addReclamation(this.add.value).subscribe((data)=>{
-      this.router.navigate(['all'])
+      this.router.navigate(['contact'])
       
     },(err)=>{
       alert("Something went wrong.")

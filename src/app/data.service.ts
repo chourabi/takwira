@@ -44,7 +44,7 @@ export class DataService {
   }
 
   public addReclamation(data:any){
-    return this.httpClient.post("http://localhost:3003/api/reclamation",data);
+    return this.httpClient.post("http://localhost:3003/api/contact",data);
 
   }
 }
