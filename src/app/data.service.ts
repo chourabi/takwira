@@ -24,7 +24,17 @@ export class DataService {
 
 
   public addFeild(data:any){
+<<<<<<< HEAD
     return this.httpClient.post("http://localhost:3002/api/fields",data);
+=======
+    return this.httpClient.post("http://localhost:3002/add",data);
+  }
+
+  public auth(data:any){
+    console.log(data);
+    
+    return this.httpClient.post("http://localhost:3002/auth",data,{headers:{}});
+>>>>>>> 5252b91c9747061a9f72c0172ef59618f9238786
   }
 
 }

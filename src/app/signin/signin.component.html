@@ -1,0 +1,64 @@
+
+
+  <app-navbar></app-navbar>
+  <!-- Page Content -->
+  <div class="container" style="margin-top: 150px;">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">TAKWIRA</h1>
+        
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+
+
+        <div class="row">
+
+
+            <div class="col-sm-12">
+                <h3>Sign in</h3>
+            <hr>
+            <div class="add-form">
+                <form [formGroup]="sigin" (ngSubmit)="auth()"  >
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" name="" formControlName="email" class="form-control"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="text" name="" formControlName="password" class="form-control"   />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" [disabled]="! sigin.valid" >SIGN IN</button>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+      
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
