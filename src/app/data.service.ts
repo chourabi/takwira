@@ -18,16 +18,12 @@ export class DataService {
 
 
   public getFeild(data:any){
-<<<<<<< HEAD
-    return this.httpClient.get("http://localhost:3003/api/fields");
-=======
     let token = ""+localStorage.getItem("token");
     
     return this.httpClient.get("http://localhost:3002/app/all",{headers:{
       "Content-Type":"application/json",
       "Authorization":token
     }});
->>>>>>> e453985c1f4b1cd11801058f7adffb94febefdf1
   }  
 
 
@@ -48,3 +44,5 @@ export class DataService {
   }
 
 }
+
+

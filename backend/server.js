@@ -77,14 +77,8 @@ app.post('/app/add',function(req,res){
     addNewFeild(req,res);
 });
 
-<<<<<<< HEAD
-
-app.post('/add',function(req,res){
-   terrin.addNewFeild(req,res);
-=======
 app.get('/app/all',function(req,res){
     getAllFeilds(req,res);
->>>>>>> e453985c1f4b1cd11801058f7adffb94febefdf1
 })
 
 
