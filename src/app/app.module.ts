@@ -8,11 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddfeildComponent } from './addfeild/addfeild.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
-import { FielddetailComponent } from './fielddetail/fielddetail.component';
-=======
 import { SigninComponent } from './signin/signin.component';
->>>>>>> 5252b91c9747061a9f72c0172ef59618f9238786
 
 
 @NgModule({
@@ -21,11 +17,7 @@ import { SigninComponent } from './signin/signin.component';
     TerrainComponent,
     AddfeildComponent,
     NavbarComponent,
-<<<<<<< HEAD
-    FielddetailComponent
-=======
     SigninComponent
->>>>>>> 5252b91c9747061a9f72c0172ef59618f9238786
   ],
   imports: [
     BrowserModule,
