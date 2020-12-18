@@ -20,7 +20,7 @@ export class TerrainComponent implements OnInit {
 
     this.dataService.getFeild(null).subscribe((data:any)=> {
       console.log(data);
-      this.terrains=data;
+      this.terrains=data.feilds;
 
     })
 

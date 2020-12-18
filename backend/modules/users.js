@@ -29,7 +29,7 @@ exports.auth = function(req,res){
                     if (r) {
                         res.send({success:true,token:r._id});
                     }else{
-                        res.send({success:false,message:"wiouww"});
+                        res.send({success:false,message:"Wrong email or password, please try again."});
                     }
                     
                 })
