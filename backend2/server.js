@@ -29,19 +29,8 @@ app.use('/api/fields',fieldRoute);
 
 
 
-app.post('/api/posts', function (req, res, next) {
-    var post = new Post({
-        name: req.body.username,
-        phone: req.body.phone,
-        location:req.body.location,
-        category:req.body.category,
-        img:req.body.img
-    })
-    post.save(function (err, post) {
-      if (err) { return next(err) }
-      res.json(201, post)
-    })
-  })
+const contactRoute=require('./routes/contact.route');
+app.use('/api/contact',contactRoute);
 
 const port=process.env.PORT||3003;
 const server=app.listen(port,()=>{
