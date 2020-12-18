@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddfeildComponent } from './addfeild/addfeild.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FielddetailComponent } from './fielddetail/fielddetail.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     TerrainComponent,
     AddfeildComponent,
-    NavbarComponent
+    NavbarComponent,
+    FielddetailComponent
   ],
   imports: [
     BrowserModule,

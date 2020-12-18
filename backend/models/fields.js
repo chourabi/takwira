@@ -8,4 +8,7 @@ location:{type:String},
 category:{type:String},
 img:{type:String},
 },{collection:'fields'});
+
+
+
 module.exports=mongoose.model('Fields',FieldSchema);

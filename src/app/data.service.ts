@@ -18,13 +18,13 @@ export class DataService {
 
 
   public getFeild(data:any){
-    return this.httpClient.get("http://localhost:3000/feilds");
+    return this.httpClient.get("http://localhost:3002/api/fields");
   }  
 
 
 
   public addFeild(data:any){
-    return this.httpClient.post("http://localhost:3000/feilds",data);
+    return this.httpClient.post("http://localhost:3002/api/fields",data);
   }
 
 }
